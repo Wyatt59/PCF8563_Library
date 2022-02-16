@@ -114,7 +114,7 @@ RTC_Date PCF8563_Class::getDateTime()
     cetury = _data[5] & PCF8563_CENTURY_MASK;
     _data[5] = _bcd_to_dec(_data[5] & PCF8563_MONTH_MASK);
     year = _bcd_to_dec(_data[6]);
-    year = cetury ?  1900 + year : 2000 + year;
+    year = cetury ?  2000 + year : 1900 + year;
     return RTC_Date(
                year,
                _data[5],
